@@ -1,0 +1,12 @@
+<svg id="installment-international_visa" data-name="installment-international/visa" xmlns="http://www.w3.org/2000/svg" width="48" height="35" viewBox="0 0 48 35">
+  <g id="VISA" transform="translate(0 0)">
+    <rect id="Background" width="48" height="35" rx="4" transform="translate(0 0)" fill="#0742a6"/>
+    <g id="logo" transform="translate(9.047 12.561)">
+      <path id="polygon9" d="M2.447,9.217H0L1.531,0H3.977Z" transform="translate(10.643 0.167)" fill="#fff"/>
+      <path id="path11" d="M7.34.392A6.172,6.172,0,0,0,5.146,0C2.729,0,1.027,1.255,1.017,3.049,1,4.373,2.235,5.108,3.162,5.55,4.108,6,4.43,6.295,4.43,6.7c-.01.617-.765.9-1.47.9a4.979,4.979,0,0,1-2.3-.49L.342,6.962,0,9.03a7.623,7.623,0,0,0,2.729.491c2.568,0,4.239-1.236,4.259-3.148C7,5.324,6.344,4.52,4.934,3.863c-.856-.422-1.38-.706-1.38-1.138.01-.392.443-.794,1.409-.794a4.253,4.253,0,0,1,1.823.353l.221.1L7.34.392Z" transform="translate(14.62 0)" fill="#fff"/>
+      <path id="path13" d="M6.515,9.216s-.221-1.059-.292-1.382H3.081L2.568,9.216H0L3.635.765A1.211,1.211,0,0,1,4.914,0H6.807L8.781,9.216Z" transform="translate(21.427 0.167)" fill="#fff"/>
+      <path id="path15" d="M6.041,0l-2.4,6.285L3.383,5.01A7.107,7.107,0,0,0,0,1.147l2.2,8.06H4.783L8.629,0H6.041Z" transform="translate(2.558 0.167)" fill="#fff"/>
+      <path id="path17" d="M3.977,0H.04L0,.186A8.13,8.13,0,0,1,5.941,5.011L5.085.775A1.01,1.01,0,0,0,3.977,0Z" transform="translate(0 0.167)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

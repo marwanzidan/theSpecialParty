@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="35" viewBox="0 0 48 35">
+  <g id="MASTERCARD" transform="translate(0 0)">
+    <rect id="Background" width="48" height="35" rx="4" transform="translate(0 0)" fill="#262626"/>
+    <g id="logo" transform="translate(10.37 8.296)">
+      <g id="group" opacity="0">
+        <rect id="Rectangle" width="27.524" height="17.953" fill="#fff"/>
+      </g>
+      <rect id="Rectangle-2" data-name="Rectangle" width="7.261" height="11.695" transform="translate(10.133 3.128)" fill="#ff5f00"/>
+      <path id="Path" d="M9.321,7.437A7.388,7.388,0,0,1,12.2,1.59a7.618,7.618,0,0,0-10.2.8A7.362,7.362,0,0,0,2,12.483a7.618,7.618,0,0,0,10.2.8A7.388,7.388,0,0,1,9.321,7.437Z" transform="translate(1.56 1.54)" fill="#eb001b"/>
+      <path id="Shape" d="M.634.587V.142L.544.524H.482L.392.142V.587H.332V0H.415l.1.419L.608,0H.691V.587Zm-.526,0V.1H0V0H.274V.1H.159V.587Z" transform="translate(25.099 13.297)" fill="#f79e1b"/>
+      <path id="Path-2" data-name="Path" d="M12.2,7.439a7.429,7.429,0,0,1-4.246,6.69A7.628,7.628,0,0,1,0,13.286,7.4,7.4,0,0,0,2.882,7.438,7.4,7.4,0,0,0,0,1.591,7.628,7.628,0,0,1,7.957.748,7.429,7.429,0,0,1,12.2,7.437Z" transform="translate(13.761 1.537)" fill="#f79e1b"/>
+    </g>
+  </g>
+</svg>
