@@ -8,8 +8,8 @@
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
   <uses-permission android:name="android.permission.CALL_PHONE" />
-  <application android:name="io.flutter.app.FlutterApplication" android:label="The Special Party" android:icon="@mipmap/ic_launcher">
-
+  <application android:name=".Application" android:label="The Special Party" android:icon="@mipmap/ic_launcher">
+    <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="@string/default_notification_channel_id"/>
     <meta-data android:name="com.google.firebase.messaging.default_notification_icon" android:resource="@mipmap/ic_notification" />
     <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDowhmuBFZhqRTggGjDcDRqTlA8e-gwZZA"/>
     <activity android:name=".MainActivity" android:launchMode="singleTop" android:theme="@style/LaunchTheme" android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode" android:hardwareAccelerated="true" android:windowSoftInputMode="adjustResize">

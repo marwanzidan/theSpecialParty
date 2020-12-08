@@ -1,5 +1,8 @@
+import 'package:TheSpecialParty/services/push_notifications.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:TheSpecialParty/constants.dart';
@@ -11,8 +14,9 @@ import 'package:TheSpecialParty/screens/productslist.dart';
 import 'package:TheSpecialParty/services/categoryservice.dart';
 import 'package:TheSpecialParty/services/homeService.dart';
 import 'package:TheSpecialParty/widgets/categoryitem.dart';
+import 'package:vibration/vibration.dart';
 
-Map links ={};
+Map links = {};
 
 class HomePage extends StatefulWidget {
   @override
@@ -56,19 +60,90 @@ class _HomePageState extends State<HomePage> {
     print(sliders);
   }
 
-  getlinks() async{
-    Map responsesettings= await HomeService().homeget();
+  getlinks() async {
+    Map responsesettings = await HomeService().homeget();
     setState(() {
-      links =responsesettings['setting'];
+      links = responsesettings['setting'];
     });
     print('hena ellinks');
     print(links);
-  
+  }
 
+  FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+      new FlutterLocalNotificationsPlugin();
+
+  // Future onSelectNotification(String payload) async {
+  //   showDialog(
+  //     context: context,
+  //     builder: (_) {
+  //       return new AlertDialog(
+  //         title: Text("PayLoad"),
+  //         content: Text("Payload : $payload"),
+  //       );
+  //     },
+  //   );
+  // }
+
+  void showNotification(String title, String body) async {
+    await _demoNotification(title, body);
+  }
+
+  Future<void> _demoNotification(String title, String body) async {
+    var androidPlatformChannelSpecifics = AndroidNotificationDetails(
+        'channel_ID', 'channel name', 'channel description',
+        importance: Importance.max,
+        playSound: true,
+        // sound: RawResourceAndroidNotificationSound('notification'),
+        showProgress: true,
+        priority: Priority.high,
+        ticker: 'test ticker');
+
+    var iOSChannelSpecifics = IOSNotificationDetails();
+    var platformChannelSpecifics = NotificationDetails(
+        android: androidPlatformChannelSpecifics, iOS: iOSChannelSpecifics);
+    await flutterLocalNotificationsPlugin.show(
+        0, title, body, platformChannelSpecifics);
   }
 
   @override
   void initState() {
+    var initializationSettingsAndroid =
+        new AndroidInitializationSettings('@mipmap/ic_notification');
+    var initializationSettingsIOS = new IOSInitializationSettings();
+    var initializationSettings = new InitializationSettings(
+        android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
+    flutterLocalNotificationsPlugin.initialize(
+      initializationSettings,
+      // onSelectNotification: onSelectNotification,
+    );
+    _firebaseMessaging.configure(
+      onMessage: (Map<String, dynamic> message) async {
+        print(message);
+        if (await Vibration.hasVibrator()) {
+          Vibration.vibrate();
+        }
+        showNotification(
+            message['notification']['title'], message['notification']['body']);
+        print("onMessage: $message");
+      },
+      onLaunch: (Map<String, dynamic> message) async {
+        print(message);
+        if (await Vibration.hasVibrator()) {
+          Vibration.vibrate();
+        }
+        print("onLaunch: $message");
+        // Navigator.pushNamed(context, '/notify');
+      },
+      onBackgroundMessage: backgroundMessageHandler,
+      onResume: (Map<String, dynamic> message) async {
+        print(message);
+        if (await Vibration.hasVibrator()) {
+          Vibration.vibrate();
+        }
+        print("onResume: $message");
+      },
+    );
     // TODO: implement initState
     super.initState();
     // setState(() {
@@ -187,7 +262,6 @@ class _HomePageState extends State<HomePage> {
                         child: Padding(
                           padding: const EdgeInsets.only(top: 8, bottom: 80),
                           child: GridView.count(
-                             
                               crossAxisCount: categoriesList == null ? 1 : 2,
                               crossAxisSpacing: 20,
                               mainAxisSpacing: 10,

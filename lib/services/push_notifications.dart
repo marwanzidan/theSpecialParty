@@ -1,6 +1,13 @@
 import 'dart:io';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:vibration/vibration.dart';
 
+Future<dynamic> backgroundMessageHandler(Map<String, dynamic> message) async {
+  print(message);
+  if (await Vibration.hasVibrator()) {
+    Vibration.vibrate();
+  }
+}
 
 class PushNotificationService {
   final FirebaseMessaging _fcm = FirebaseMessaging();

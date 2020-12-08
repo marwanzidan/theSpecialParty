@@ -60,6 +60,7 @@ dependencies:
   cloud_firestore:
   firebase_messaging:
   firebase_auth:
+  vibration:
 
 dependency_overrides:
   font_awesome_flutter:
